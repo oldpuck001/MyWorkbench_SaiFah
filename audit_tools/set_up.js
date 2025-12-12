@@ -76,8 +76,18 @@ export async function set_up() {
             </div>
 
             <div>
+                <label>国标行业</label>
+                <input id="national_standard_industry" type="text">
+            </div>
+
+            <div>
+                <label>登记机关</label>
+                <input id="registration_authority" type="text">
+            </div>
+
+            <div>
                 <label>经营范围</label>
-                <textarea id="business_scope" rows="8"></textarea>
+                <textarea id="business_scope" rows="10"></textarea>
             </div>
 
             <div>
@@ -109,6 +119,8 @@ export async function set_up() {
     const registered_capital_input = document.getElementById('registered_capital');
     const legal_representative_input = document.getElementById('legal_representative');
     const registered_address_input = document.getElementById('registered_address');
+    const national_standard_industry_input = document.getElementById('national_standard_industry'); 
+    const registration_authority_input = document.getElementById('registration_authority');
     const business_scope_input = document.getElementById('business_scope');
 
     const basic_file_path_input = document.getElementById('basic_file_path');
@@ -175,6 +187,8 @@ export async function set_up() {
             registered_capital: registered_capital_input.value,
             legal_representative: legal_representative_input.value,
             registered_address: registered_address_input.value,
+            national_standard_industry: national_standard_industry_input.value,
+            registration_authority: registration_authority_input.value,
             business_scope: business_scope_input.value
         };
 
@@ -198,6 +212,8 @@ export async function set_up() {
             registered_capital_input.value = result[1]['注册资本'];
             legal_representative_input.value = result[1]['法定代表人'];
             registered_address_input.value = result[1]['注册地址'];
+            national_standard_industry_input.value = result[1]['国标行业'];
+            registration_authority_input.value = result[1]['登记机关'];
             business_scope_input.value = result[1]['经营范围'];
 
         } else if (result[0] === 'select_basic_file') {
@@ -224,6 +240,8 @@ export async function set_up() {
             registered_capital_input.value = result[1]['注册资本'];
             legal_representative_input.value = result[1]['法定代表人'];
             registered_address_input.value = result[1]['注册地址'];
+            national_standard_industry_input.value = result[1]['国标行业'];
+            registration_authority_input.value = result[1]['登记机关'];
             business_scope_input.value = result[1]['经营范围'];
 
             alert('读取企查查信用报告（Excel操作版）成功！');

@@ -10,7 +10,7 @@ def import_config(request):
 
     settings_path = os.path.join(folder_path, '项目数据', 'settings.json')
 
-    with open(settings_path, 'r', encoding='utf-8') as f:
+    with open(settings_path, 'r') as f:
         settings_dict = json.load(f)
 
     return ['import_config', settings_dict]
@@ -38,7 +38,7 @@ def import_basic(request):
     else:
     # 创建一个字典来保存这些信息
         info_dict = {'企业名称': '', '成立日期': '', '核准日期': '', '统一社会信用代码': '', '注册资本': '',
-                     '法定代表人': '', '注册地址': '', '经营范围': ''}
+                     '法定代表人': '', '注册地址': '', '国标行业': '', '登记机关': '', '经营范围': ''}
         
         # 返回数据字典和保存路径
         return ['import_basic', info_dict]
@@ -61,6 +61,10 @@ def import_basic(request):
                 legal_representative = basic_info_df.iloc[j, i+1]          # 法定代表人
             elif keywords == '注册地址':
                 registered_address = basic_info_df.iloc[j, i+1]            # 注册地址
+            elif keywords == '国标行业':
+                national_standard_industry = basic_info_df.iloc[j, i+1]    # 国标行业
+            elif keywords == '登记机关':
+                registration_authority = basic_info_df.iloc[j, i+1]        # 登记机关
             elif keywords == '经营范围':
                 business_scope = basic_info_df.iloc[j, i+1]                # 经营范围
     
@@ -73,6 +77,8 @@ def import_basic(request):
         '注册资本': [registered_capital],
         '法定代表人': [legal_representative],
         '注册地址': [registered_address],
+        '国标行业': [national_standard_industry],
+        '登记机关': [registration_authority],
         '经营范围': [business_scope]
     }
     
@@ -96,9 +102,11 @@ def save_settings(request):
     registered_capital = request.get('data', {}).get('registered_capital', '')
     legal_representative = request.get('data', {}).get('legal_representative', '')
     registered_address = request.get('data', {}).get('registered_address', '')
+    national_standard_industry = request.get('data', {}).get('national_standard_industry', '')
+    registration_authority = request.get('data', {}).get('registration_authority', '')
     business_scope = request.get('data', {}).get('business_scope', '')
 
-    with open(settings_path, 'r', encoding='utf-8') as f:
+    with open(settings_path, 'r') as f:
         settings_dict = json.load(f)
 
     settings_dict['被审计会计期间'] = period
@@ -112,10 +120,12 @@ def save_settings(request):
     settings_dict['注册资本'] = registered_capital
     settings_dict['法定代表人'] = legal_representative
     settings_dict['注册地址'] = registered_address
+    settings_dict['国标行业'] = national_standard_industry
+    settings_dict['登记机关'] = registration_authority
     settings_dict['经营范围'] = business_scope
 
     # 使用 UTF-8 编码写入 JSON 文件
-    with open(settings_path, 'w', encoding='utf-8') as f:
+    with open(settings_path, 'w') as f:
         json.dump(settings_dict, f, indent=4)
 
     # 返回成功信息
