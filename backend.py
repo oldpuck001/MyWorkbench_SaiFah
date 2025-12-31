@@ -11,7 +11,6 @@ from file_tools import sort
 from file_tools import collect_file
 from file_tools import copy_folder
 
-from xlsx_tools import splice
 from xlsx_tools import subtotals
 from xlsx_tools import regex
 
@@ -19,19 +18,12 @@ from audit_tools import select_folder
 from audit_tools import set_up
 from audit_tools import import_account_balance_sheet
 from audit_tools import import_chronological_account
-from audit_tools import import_balance_sheet
-from audit_tools import import_income_statement
-from audit_tools import import_cash_flow_statement
-
-from data_analysis_tools import data_cleaning
-from data_analysis_tools import sqlite
 
 from other_tools import find_subset
 from other_tools import text_comparison
 from other_tools import docx_comparison
 from other_tools import xlsx_comparison
 from other_tools import bank_statement_sort
-from other_tools import generate_chronological_account
 
 def main():
     
@@ -60,11 +52,7 @@ def main():
 
 
     # 电子表格工具
-    elif request["command"] == "splice_sheet_input":
-        result = splice.input_sheet(request)
-    elif request["command"] == "splice_sheet_output":
-        result = splice.output_sheet(request)
-    elif request["command"] == "subtotals_import":
+    if request["command"] == "subtotals_import":
         result = subtotals.subtotals_import(request)
     elif request["command"] == "subtotals_index":
         result = subtotals.subtotals_index(request)
@@ -105,48 +93,6 @@ def main():
     elif request["command"] == "export_chronological_account":
         result = import_chronological_account.export_chronological_account(request)
 
-    elif request["command"] == "select_balance_sheet":
-        result = import_balance_sheet.select_balance_sheet(request)
-    elif request["command"] == "import_balance_sheet":
-        result = import_balance_sheet.import_balance_sheet(request)
-
-    elif request["command"] == "select_income_statement":
-        result = import_income_statement.select_income_statement(request)
-    elif request["command"] == "import_income_statement":
-        result = import_income_statement.import_income_statement(request)
-
-    elif request["command"] == "select_cash_flow_statement":
-        result = import_cash_flow_statement.select_cash_flow_statement(request)
-    elif request["command"] == "import_cash_flow_statement":
-        result = import_cash_flow_statement.import_cash_flow_statement(request)
-
-
-
-
-
-
-
-
-
-    # 数据分析工具
-    elif request["command"] == "data_cleaning_select":
-        result = data_cleaning.data_cleaning_select(request)
-    elif request["command"] == "data_cleaning_index":
-        result = data_cleaning.data_cleaning_index(request)
-    elif request['command'] == "data_cleaning_clean":
-        result = data_cleaning.data_cleaning_clean(request)
-    elif request["command"] == "data_cleaning_export":
-        result = data_cleaning.data_cleaning_export(request)
-
-    elif request["command"] == "sql_sqlite_folder":
-        result = sqlite.sql_sqlite_folder(request)
-    elif request["command"] == "sql_sqlite_sql":
-        result = sqlite.sql_sqlite_sql(request)
-    elif request["command"] == "sql_sqlite_backup":
-        result = sqlite.sql_sqlite_backup(request)
-    elif request["command"] == "sql_sqlite_select":
-        result = sqlite.sql_sqlite_select(request)
-
 
     # 其他辅助工具
     elif request["command"] == "find_subset_sheetnames_import":
@@ -175,15 +121,6 @@ def main():
         result = bank_statement_sort.bank_statement_sort_debit_or_credit(request)
     elif request["command"] == "bank_statement_sort_export":
         result = bank_statement_sort.bank_statement_sort_export(request)
-
-    elif request["command"] == "generate_chronological_account_import":
-        result = generate_chronological_account.generate_chronological_account_import(request)
-    elif request["command"] == "generate_chronological_account_index":
-        result = generate_chronological_account.generate_chronological_account_index(request)
-    elif request["command"] == "generate_chronological_account_debit_or_credit":
-        result = generate_chronological_account.generate_chronological_account_debit_or_credit(request)
-    elif request["command"] == "generate_chronological_account_export":
-        result = generate_chronological_account.generate_chronological_account_export(request)
 
     else:
         result = "Unknown command"

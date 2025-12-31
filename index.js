@@ -8,7 +8,6 @@ import { exportFunction } from './file_tools/export.js'
 import { collect_fileFunction } from './file_tools/collect_file.js'
 import { copy_folderFunction } from './file_tools/copy_folder.js'
 
-import { spliceFunction } from './xlsx_tools/splice.js';
 import { subtotalsFunction } from './xlsx_tools/subtotals.js';
 import { regexFunction } from './xlsx_tools/regex.js'
 
@@ -16,19 +15,12 @@ import { select_folder } from './audit_tools/select_folder.js';
 import { set_up } from './audit_tools/set_up.js';
 import { import_account_balance_sheet } from './audit_tools/import_account_balance_sheet.js';
 import { import_chronological_account } from './audit_tools/import_chronological_account.js';
-import { import_balance_sheet } from './audit_tools/import_balance_sheet.js';
-import { import_income_statement } from './audit_tools/import_income_statement.js';
-import { import_cash_flow_statement } from './audit_tools/import_cash_flow_statement.js';
-
-import { data_cleaning } from './data_analysis_tools/data_cleaning.js'
-import { sqlite } from './data_analysis_tools/sqlite.js'
 
 import { find_subset } from './other_tools/find_subset.js'
 import { text_comparison } from './other_tools/text_comparison.js'
 import { docx_comparison } from './other_tools/docx_comparison.js'
 import { xlsx_comparison } from './other_tools/xlsx_comparison.js'
 import { bank_statement_sort } from './other_tools/bank_statement_sort.js'
-import { generate_chronological_account } from './other_tools/generate_chronogical_account.js'
 
 document.querySelectorAll('.sidebar > ul > li').forEach(item => {
     item.addEventListener('click', function (e) {
@@ -101,10 +93,6 @@ window.file_tools_copy_folderFunction = function() {
     copy_folderFunction();
 }
 
-window.xlsx_tools_spliceFunction = function() {
-    spliceFunction();
-}
-
 window.excel_tools_subtotalsFunction = function() {
     subtotalsFunction();
 }
@@ -129,26 +117,6 @@ window.import_chronological_account = function() {
     import_chronological_account();
 }
 
-window.import_balance_sheet = function() {
-    import_balance_sheet();
-}
-
-window.import_income_statement = function() {
-    import_income_statement();
-}
-
-window.import_cash_flow_statement = function() {
-    import_cash_flow_statement();
-}
-
-window.data_cleaning = function() {
-    data_cleaning();
-}
-
-window.sqlite = function() {
-    sqlite();
-}
-
 window.find_subset = function() {
     find_subset();
 }
@@ -167,8 +135,4 @@ window.xlsx_comparison = function() {
 
 window.bank_statement_sort = function() {
     bank_statement_sort();
-}
-
-window.generate_chronological_account = function() {
-    generate_chronological_account();
 }

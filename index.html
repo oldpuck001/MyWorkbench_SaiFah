@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Workbench - Mac</title>
+    <title>My Workbench - SaiFah</title>
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
@@ -11,27 +11,25 @@
     <div class="sidebar" id="sidebar">
         <!-- sidebar是侧边栏控件，ul是无序列表控件 -->
         <ul>
-            <li>
-                文件操作工具
-                <ul>
-                    <li onclick="file_tools_modifythefilenameFunction()">自动修改文件名</li>
-                    <li onclick="file_tools_characterFunction()">按前n个字符分类修改文件名</li>
-                    <li onclick="file_tools_imageFunction()">图片文件名修改</li>
-                    <li onclick="file_tools_exportFunction()">输出文件名汇总</li>
-                    <li onclick="file_tools_sortFunction()">按文件名分类</li>
-                    <li onclick="file_tools_collect_fileFunction()">将文件汇集至单一文件夹内</li>
-                    <li onclick="file_tools_copy_folderFunction()">复制文件夹结构</li>
-                </ul>
-            </li>
+            <li onclick="file_tools_modifythefilenameFunction()">自动修改文件名</li>
+            <li onclick="file_tools_characterFunction()">按前n个字符分类修改文件名</li>
+            <li onclick="file_tools_imageFunction()">图片文件名修改</li>
+            <li onclick="file_tools_exportFunction()">输出文件名汇总</li>
+            <li onclick="file_tools_sortFunction()">按文件名分类</li>
+            <li onclick="file_tools_collect_fileFunction()">将文件汇集至单一文件夹内</li>
+            <li onclick="file_tools_copy_folderFunction()">复制文件夹结构</li>
+
+
             
             <li>
                 电子表格工具
                 <ul>
-                    <li onclick="xlsx_tools_spliceFunction()">电子表格拼接</li>
                     <li onclick="excel_tools_subtotalsFunction()">分类汇总表格</li>
                     <li onclick="excel_tools_regexFunction()">使用正则表达式筛选</li>
                 </ul>
             </li>
+
+
 
             <li>
                 审计辅助工具
@@ -40,17 +38,6 @@
                     <li onclick="set_up()">项目信息设置</li>
                     <li onclick="import_account_balance_sheet()">导入本期科目余额表</li>
                     <li onclick="import_chronological_account()">导入本期序时账 / 凭证列表</li>
-                    <li onclick="import_balance_sheet()">导入未审资产负债表</li>
-                    <li onclick="import_income_statement()">导入未审利润表</li>
-                    <li onclick="import_cash_flow_statement()">导入未审现金流量表</li>
-                </ul>
-            </li>
-
-            <li>
-                数据分析工具
-                <ul>
-                    <li onclick="data_cleaning()">数据清洗</li>
-                    <li onclick="sqlite()">SQLite数据库</li>
                 </ul>
             </li>
 
@@ -62,7 +49,6 @@
                     <li onclick="docx_comparison()">Word文档对比</li>
                     <li onclick="xlsx_comparison()">Excel表格对比</li>
                     <li onclick="bank_statement_sort()">银行对账单分类</li>
-                    <li onclick="generate_chronological_account()">自动生成序时账</li>
                 </ul>
             </li>
         </ul>
