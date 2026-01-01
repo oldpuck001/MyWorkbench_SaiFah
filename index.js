@@ -8,7 +8,6 @@ import { exportFunction } from './file_tools/export.js'
 import { collect_fileFunction } from './file_tools/collect_file.js'
 import { copy_folderFunction } from './file_tools/copy_folder.js'
 
-import { subtotalsFunction } from './xlsx_tools/subtotals.js';
 import { regexFunction } from './xlsx_tools/regex.js'
 
 import { select_folder } from './audit_tools/select_folder.js';
@@ -91,10 +90,6 @@ window.file_tools_collect_fileFunction = function() {
 
 window.file_tools_copy_folderFunction = function() {
     copy_folderFunction();
-}
-
-window.excel_tools_subtotalsFunction = function() {
-    subtotalsFunction();
 }
 
 window.excel_tools_regexFunction = function() {
