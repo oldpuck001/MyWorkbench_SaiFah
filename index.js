@@ -1,24 +1,21 @@
 // index.js
 
-import { modifythefilenameFunction } from './file_tools/modifythefilename.js'
-import { characterFunction } from './file_tools/character.js'
-import { imageFunction } from './file_tools/image.js'
-import { sortFunction } from './file_tools/sort.js'
-import { exportFunction } from './file_tools/export.js'
-import { collect_fileFunction } from './file_tools/collect_file.js'
-import { copy_folderFunction } from './file_tools/copy_folder.js'
+import { modifythefilenameFunction } from './tools/modifythefilename.js'
+import { characterFunction } from './tools/character.js'
+import { imageFunction } from './tools/image.js'
+import { sortFunction } from './tools/sort.js'
+import { exportFunction } from './tools/export.js'
+import { collect_fileFunction } from './tools/collect_file.js'
+import { copy_folderFunction } from './tools/copy_folder.js'
 
-import { regexFunction } from './xlsx_tools/regex.js'
+import { text_comparison } from './other_tools/text_comparison.js'
+import { docx_comparison } from './other_tools/docx_comparison.js'
 
 import { select_folder } from './audit_tools/select_folder.js';
 import { set_up } from './audit_tools/set_up.js';
 import { import_account_balance_sheet } from './audit_tools/import_account_balance_sheet.js';
 import { import_chronological_account } from './audit_tools/import_chronological_account.js';
 
-import { find_subset } from './other_tools/find_subset.js'
-import { text_comparison } from './other_tools/text_comparison.js'
-import { docx_comparison } from './other_tools/docx_comparison.js'
-import { xlsx_comparison } from './other_tools/xlsx_comparison.js'
 import { bank_statement_sort } from './other_tools/bank_statement_sort.js'
 
 document.querySelectorAll('.sidebar > ul > li').forEach(item => {
@@ -60,41 +57,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 页面加载后自动显示的页面
 window.addEventListener('DOMContentLoaded', () => {
-    const contentDiv = document.getElementById('content');
-    contentDiv.innerHTML = `<h1>欢迎使用</h1>`;
+    window.index_pageFunction();
 });
 
-window.file_tools_modifythefilenameFunction = function() {
+window.index_pageFunction = function() {
+    const contentDiv = document.getElementById('content');
+    contentDiv.innerHTML = `<h1>欢迎使用</h1>`;
+}
+
+window.tools_modifythefilenameFunction = function() {
     modifythefilenameFunction();
 }
 
-window.file_tools_characterFunction = function() {
+window.tools_characterFunction = function() {
     characterFunction();
 }
 
-window.file_tools_imageFunction = function() {
+window.tools_imageFunction = function() {
     imageFunction();
 }
 
-window.file_tools_exportFunction = function() {
+window.tools_exportFunction = function() {
     exportFunction();
 }
 
-window.file_tools_sortFunction = function() {
+window.tools_sortFunction = function() {
     sortFunction();
 }
 
-window.file_tools_collect_fileFunction = function() {
+window.tools_collect_fileFunction = function() {
     collect_fileFunction();
 }
 
-window.file_tools_copy_folderFunction = function() {
+window.tools_copy_folderFunction = function() {
     copy_folderFunction();
 }
 
-window.excel_tools_regexFunction = function() {
-    regexFunction();
+
+
+window.text_comparison = function() {
+    text_comparison();
 }
+
+window.docx_comparison = function() {
+    docx_comparison();
+}
+
+
 
 window.select_folder = function() {
     select_folder();
@@ -112,21 +121,7 @@ window.import_chronological_account = function() {
     import_chronological_account();
 }
 
-window.find_subset = function() {
-    find_subset();
-}
 
-window.text_comparison = function() {
-    text_comparison();
-}
-
-window.docx_comparison = function() {
-    docx_comparison();
-}
-
-window.xlsx_comparison = function() {
-    xlsx_comparison();
-}
 
 window.bank_statement_sort = function() {
     bank_statement_sort();

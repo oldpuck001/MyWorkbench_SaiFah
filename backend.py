@@ -3,25 +3,22 @@
 import sys
 import json
 
-from file_tools import modifythefilename
-from file_tools import character
-from file_tools import image
-from file_tools import export
-from file_tools import sort
-from file_tools import collect_file
-from file_tools import copy_folder
+from tools import modifythefilename
+from tools import character
+from tools import image
+from tools import export
+from tools import sort
+from tools import collect_file
+from tools import copy_folder
 
-from xlsx_tools import regex
+from other_tools import text_comparison
+from other_tools import docx_comparison
 
 from audit_tools import select_folder
 from audit_tools import set_up
 from audit_tools import import_account_balance_sheet
 from audit_tools import import_chronological_account
 
-from other_tools import find_subset
-from other_tools import text_comparison
-from other_tools import docx_comparison
-from other_tools import xlsx_comparison
 from other_tools import bank_statement_sort
 
 def main():
@@ -50,13 +47,13 @@ def main():
         result = copy_folder.copy_folder(request)
 
 
-    # 电子表格工具
-    if request['command'] == "regex_import":
-        result = regex.select_file(request)
-    elif request['command'] == "regex_index":
-        result = regex.road_sheet(request)
-    elif request['command'] == "regex_generate":
-        result = regex.regex_generate(request)
+
+    # 其他辅助工具
+    elif request["command"] == "text_comparison":
+        result = text_comparison.text_comparison(request)
+    elif request["command"] == "docx_comparison":
+        result = docx_comparison.compare_word_documents(request)
+
 
 
     # 审计辅助工具
@@ -87,24 +84,6 @@ def main():
         result = import_chronological_account.export_chronological_account(request)
 
 
-    # 其他辅助工具
-    elif request["command"] == "find_subset_sheetnames_import":
-        result = find_subset.find_subset_sheetnames_import(request)
-    elif request["command"] == "find_subset_columns_index":
-        result = find_subset.find_subset_columns_index(request)
-    elif request["command"] == "find_subset_import":
-        result = find_subset.find_subset_import(request)
-    elif request["command"] == "find_subset_export":
-        result = find_subset.find_subset_export(request)
-
-    elif request["command"] == "text_comparison":
-        result = text_comparison.text_comparison(request)
-    elif request["command"] == "docx_comparison":
-        result = docx_comparison.compare_word_documents(request)
-    elif request["command"] == "xlsx_comparision_sheetnames":
-        result = xlsx_comparison.xlsx_comparision_sheetnames(request)
-    elif request["command"] == "xlsx_comparison":
-        result = xlsx_comparison.compare_excels(request)
 
     elif request["command"] == "bank_statement_sort_import":
         result = bank_statement_sort.bank_statement_sort_import(request)
