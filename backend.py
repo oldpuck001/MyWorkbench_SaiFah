@@ -19,8 +19,6 @@ from audit_tools import set_up
 from audit_tools import import_account_balance_sheet
 from audit_tools import import_chronological_account
 
-from other_tools import bank_statement_sort
-
 def main():
     
     # 從標準輸入讀取數據
@@ -82,17 +80,6 @@ def main():
         result = import_chronological_account.index_chronological_account(request)
     elif request["command"] == "export_chronological_account":
         result = import_chronological_account.export_chronological_account(request)
-
-
-
-    elif request["command"] == "bank_statement_sort_import":
-        result = bank_statement_sort.bank_statement_sort_import(request)
-    elif request["command"] == "bank_statement_sort_index":
-        result = bank_statement_sort.bank_statement_sort_index(request)
-    elif request["command"] == "bank_statement_sort_debit_or_credit":
-        result = bank_statement_sort.bank_statement_sort_debit_or_credit(request)
-    elif request["command"] == "bank_statement_sort_export":
-        result = bank_statement_sort.bank_statement_sort_export(request)
 
     else:
         result = "Unknown command"

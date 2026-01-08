@@ -16,8 +16,6 @@ import { set_up } from './audit_tools/set_up.js';
 import { import_account_balance_sheet } from './audit_tools/import_account_balance_sheet.js';
 import { import_chronological_account } from './audit_tools/import_chronological_account.js';
 
-import { bank_statement_sort } from './other_tools/bank_statement_sort.js'
-
 document.querySelectorAll('.sidebar > ul > li').forEach(item => {
     item.addEventListener('click', function (e) {
         // 检查是否有子菜单
@@ -119,10 +117,4 @@ window.import_account_balance_sheet = function() {
 
 window.import_chronological_account = function() {
     import_chronological_account();
-}
-
-
-
-window.bank_statement_sort = function() {
-    bank_statement_sort();
 }
