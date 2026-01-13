@@ -9,8 +9,8 @@ def get_paragraphs(file_path):
 
 def compare_word_documents(request):
 
-    docx_path_1 = request.get("data", {}).get("docx_path_1", "")
-    docx_path_2 = request.get("data", {}).get("docx_path_2", "")
+    docx_path_1 = request.get('data', {}).get('docx_path_1', '')
+    docx_path_2 = request.get('data', {}).get('docx_path_2', '')
 
     paras1 = get_paragraphs(docx_path_1)
     paras2 = get_paragraphs(docx_path_2)

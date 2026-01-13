@@ -66,7 +66,7 @@ export async function text_comparison() {
 
         if (result[0] === 'text_comparison') {
 
-            document.getElementById(`result_output`).value = result[1];
+            document.getElementById(`result_output`).value = result[1]['result_message'];
 
         };
     });

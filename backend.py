@@ -10,14 +10,8 @@ from tools import export
 from tools import sort
 from tools import collect_file
 from tools import copy_folder
-
-from other_tools import text_comparison
-from other_tools import docx_comparison
-
-from audit_tools import select_folder
-from audit_tools import set_up
-from audit_tools import import_account_balance_sheet
-from audit_tools import import_chronological_account
+from tools import text_comparison
+from tools import docx_comparison
 
 def main():
     
@@ -43,43 +37,11 @@ def main():
         result = collect_file.collect_file(request)
     elif request["command"] == "copy_folder":
         result = copy_folder.copy_folder(request)
-
-
-
-    # 其他辅助工具
+    # 文本对比工具
     elif request["command"] == "text_comparison":
         result = text_comparison.text_comparison(request)
     elif request["command"] == "docx_comparison":
         result = docx_comparison.compare_word_documents(request)
-
-
-
-    # 审计辅助工具
-    elif request["command"] == "select_folder_path":
-        result = select_folder.select_folder_path(request)
-
-    elif request["command"] == "import_config":
-        result = set_up.import_config(request)
-    elif request['command'] == 'select_basic_file':
-        result =set_up.select_basic_file(request)
-    elif request["command"] == "import_basic":
-        result = set_up.import_basic(request)
-    elif request["command"] == "save_settings":
-        result = set_up.save_settings(request)
-
-    elif request["command"] == "import_account_balance_sheet":
-        result = import_account_balance_sheet.import_account_balance_sheet(request)
-    elif request["command"] == "index_account_balance_sheet":
-        result = import_account_balance_sheet.index_account_balance_sheet(request)
-    elif request["command"] == "export_account_balance_sheet":
-        result = import_account_balance_sheet.export_account_balance_sheet(request)
-
-    elif request["command"] == "import_chronological_account":
-        result = import_chronological_account.import_chronological_account(request)
-    elif request["command"] == "index_chronological_account":
-        result = import_chronological_account.index_chronological_account(request)
-    elif request["command"] == "export_chronological_account":
-        result = import_chronological_account.export_chronological_account(request)
 
     else:
         result = "Unknown command"
