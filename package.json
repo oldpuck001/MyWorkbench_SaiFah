@@ -15,5 +15,11 @@
   "devDependencies": {
     "electron": "^35.1.2",
     "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "appId": "com.my.app.id",
+    "mac": {
+        "category": "public.app-category.utilities"
+    }
   }
 }
